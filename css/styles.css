@@ -128,4 +128,49 @@ footer{
   padding:20px 16px;
   text-align:center;
   color:var(--muted);
+  /* ---- Global rhythm & figures ---- */
+main > section{ margin-bottom:32px; }                  /* space between sections */
+figure{ margin:16px auto; }                            /* consistent figure spacing */
+figure img{ border-radius:12px; }                      /* rounded images */
+
+/* ---- Home hero (image not so tall, nicer subtitle) ---- */
+section[aria-labelledby="hero-title"] p{
+  color:var(--muted); font-style:italic;               /* lighter subtitle text */
+}
+section[aria-labelledby="hero-title"] img{
+  width:100%; max-height:420px; object-fit:cover;      /* crop tall hero nicely */
+}
+
+/* ---- Nutrition top area ---- */
+section[aria-labelledby="page-title"] h2{ margin-top:12px; }
+section[aria-labelledby="page-title"] p{
+  text-align:center; color:var(--muted);               /* centered lead */
+}
+section[aria-labelledby="page-title"] figure img,
+section[aria-labelledby="balanced-meals"] figure img{
+  width:100%;                                          /* responsive images */
+}
+
+/* ---- Form page: make inputs truly full width ---- */
+label{ display:inline-block; margin-bottom:6px; }
+input[type="text"],
+input[type="email"],
+select,
+textarea{
+  display:block;                                       /* allows width:100% to apply */
+  width:100%;
+  background:#0b1220;
+  color:var(--text);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px 12px;
+}
+form p{ margin:12px 0; }                               /* spacing between fields */
+button[type="submit"]{ margin-top:8px; }               /* button breathing room */
+
+/* ---- Cards: a touch of depth (optional) ---- */
+article,aside{
+  box-shadow:0 1px 0 rgba(255,255,255,.04) inset,
+             0 8px 24px rgba(0,0,0,.24);
+}
 }
