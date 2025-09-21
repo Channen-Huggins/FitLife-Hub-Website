@@ -41,10 +41,11 @@ header nav a{
 /* active/hover pill */
 header nav a:hover,
 header nav a[aria-current="page"]{
-  background:rgba(255,255,255,.1);
-  outline:1px solid rgba(255,255,255,.12);
+  background:rgba(255,255,255,0.1);
+  outline:1px solid rgba(255,255,255,0.12);
 }
 
+/* layout + headings */
 main{ max-width:1100px; margin:24px auto; padding:0 16px; }
 h2{ font-size:clamp(1.8rem,4vw,3.5rem); margin:24px 0 8px; text-align:center; }
 h3{ font-size:1.35rem; margin:16px 0 8px; }
@@ -93,14 +94,16 @@ section[aria-labelledby="immediate-help"] article{
   padding:16px;
 }
 
+/* figures */
 figure{ margin:16px 0; }
-figcaption{ color:var(--muted); font-size:.9rem; text-align:center; }
+figcaption{ color:var(--muted); font-size:0.9rem; text-align:center; }
 
 /* full-width input fields */
 label{ display:inline-block; margin-bottom:6px; }
 input[type="text"],
 input[type="email"],
 select,textarea{
+  display:block;
   width:100%;
   background:#0b1220;
   color:var(--text);
@@ -114,6 +117,8 @@ input:focus,select:focus,textarea:focus{
   outline:2px solid var(--accent);
   outline-offset:2px;
 }
+form p{ margin:12px 0; }
+button[type="submit"]{ margin-top:8px; }
 
 /* primary action button */
 button,.btn{
@@ -123,59 +128,35 @@ button,.btn{
 }
 button:hover,.btn:hover{ filter:brightness(1.05); }
 
-footer{
-  border-top:1px solid var(--border);
-  padding:20px 16px;
-  text-align:center;
-  color:var(--muted);
-  /* ---- Global rhythm & figures ---- */
-main > section{ margin-bottom:32px; }                  /* space between sections */
-figure{ margin:16px auto; }                            /* consistent figure spacing */
-figure img{ border-radius:12px; }                      /* rounded images */
-
-/* ---- Home hero (image not so tall, nicer subtitle) ---- */
+/* rhythm & hero tweaks */
+main > section{ margin-bottom:32px; }              /* space between sections */
+figure img{ border-radius:12px; }                  /* rounded images */
 section[aria-labelledby="hero-title"] p{
-  color:var(--muted); font-style:italic;               /* lighter subtitle text */
+  color:var(--muted); font-style:italic;           /* softer subtitle */
 }
 section[aria-labelledby="hero-title"] img{
-  width:100%; max-height:420px; object-fit:cover;      /* crop tall hero nicely */
+  width:100%; max-height:420px; object-fit:cover;  /* crop tall hero nicely */
 }
 
-/* ---- Nutrition top area ---- */
+/* nutrition intro */
 section[aria-labelledby="page-title"] h2{ margin-top:12px; }
 section[aria-labelledby="page-title"] p{
-  text-align:center; color:var(--muted);               /* centered lead */
+  text-align:center; color:var(--muted);
 }
 section[aria-labelledby="page-title"] figure img,
 section[aria-labelledby="balanced-meals"] figure img{
-  width:100%;                                          /* responsive images */
-}
-
-/* ---- Form page: make inputs truly full width ---- */
-label{ display:inline-block; margin-bottom:6px; }
-input[type="text"],
-input[type="email"],
-select,
-textarea{
-  display:block;                                       /* allows width:100% to apply */
   width:100%;
-  background:#0b1220;
-  color:var(--text);
-  border:1px solid var(--border);
-  border-radius:10px;
-  padding:10px 12px;
 }
-form p{ margin:12px 0; }                               /* spacing between fields */
-button[type="submit"]{ margin-top:8px; }               /* button breathing room */
 
-/* ---- Cards: a touch of depth (optional) ---- */
+/* subtle depth on cards */
 article,aside{
-  box-shadow:0 1px 0 rgba(255,255,255,.04) inset,
-             0 8px 24px rgba(0,0,0,.24);
+  box-shadow:0 1px 0 rgba(255,255,255,0.04) inset,
+             0 8px 24px rgba(0,0,0,0.24);
 }
-  /* meal plan callout banner */
+
+/* meal plan callout banner */
 section[aria-labelledby="meal-plan"]{
-  background:#3b2db8;            /* purple strip */
+  background:#3b2db8;
   border-radius:12px;
   padding:18px 16px;
   color:#fff;
@@ -184,8 +165,18 @@ section[aria-labelledby="meal-plan"]{
 section[aria-labelledby="meal-plan"] a{
   display:inline-block;
   margin-top:8px;
-  background:#7c5cff;            /* button on purple */
-  color:#fff; padding:10px 16px;
-  border-radius:8px; text-decoration:none;
+  background:#7c5cff;
+  color:#fff;
+  padding:10px 16px;
+  border-radius:8px;
+  text-decoration:none;
 }
 section[aria-labelledby="meal-plan"] a:hover{ filter:brightness(1.05); }
+
+/* footer */
+footer{
+  border-top:1px solid var(--border);
+  padding:20px 16px;
+  text-align:center;
+  color:var(--muted);
+}
