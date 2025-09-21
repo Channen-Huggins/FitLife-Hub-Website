@@ -173,4 +173,19 @@ article,aside{
   box-shadow:0 1px 0 rgba(255,255,255,.04) inset,
              0 8px 24px rgba(0,0,0,.24);
 }
+  /* meal plan callout banner */
+section[aria-labelledby="meal-plan"]{
+  background:#3b2db8;            /* purple strip */
+  border-radius:12px;
+  padding:18px 16px;
+  color:#fff;
+  text-align:center;
 }
+section[aria-labelledby="meal-plan"] a{
+  display:inline-block;
+  margin-top:8px;
+  background:#7c5cff;            /* button on purple */
+  color:#fff; padding:10px 16px;
+  border-radius:8px; text-decoration:none;
+}
+section[aria-labelledby="meal-plan"] a:hover{ filter:brightness(1.05); }
