@@ -11,12 +11,12 @@
   <header>
     <h1>FitLife Hub</h1>
     <nav aria-label="Primary">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="nutrition.html">Nutrition</a></li>
-    <li><a href="form.html">Contact</a></li>
-  </ul>
-</nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="nutrition.html">Nutrition</a></li>
+        <li><a href="form.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
   </header>
 
   <main>
@@ -25,25 +25,24 @@
       <p>Have questions, feedback, or suggestions? We’d love to hear from you.</p>
     </section>
 
-    <!-- Form + expectations/FAQ -->
     <section aria-labelledby="message-form">
       <div>
         <h3 id="message-form">Send us a Message</h3>
-        <!-- Replace the action URL later when you have a real handler -->
-        <form action="https://httpbin.org/post" method="post">
+        <form action="https://httpbin.org/post" method="post" novalidate>
           <div>
             <label for="full-name">Full Name</label>
-            <input id="full-name" name="full-name" type="text" required>
+            <input id="full-name" name="full-name" type="text" required autocomplete="name">
           </div>
           <div>
             <label for="email">Email Address</label>
-            <input id="email" name="email" type="email" required>
+            <input id="email" name="email" type="email" required autocomplete="email">
           </div>
           <div>
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="6" required></textarea>
           </div>
-          <button type="submit">Send Message</button>
+          <button type="submit" class="btn">Send Message</button>
+          <p id="formMsg" aria-live="polite" style="margin-top:12px;"></p>
         </form>
       </div>
 
@@ -64,7 +63,6 @@
       </aside>
     </section>
 
-    <!-- Immediate help -->
     <section aria-labelledby="immediate-help">
       <h2 id="immediate-help">Need Immediate Help?</h2>
       <div>
@@ -91,7 +89,36 @@
   <footer>
     <p>&copy; 2025 FitLife Hub.</p>
   </footer>
+
+  <script>
+  (function () {
+    const form = document.querySelector("form");
+    const msg  = document.getElementById("formMsg");
+    if (!form || !msg) return;
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const name  = document.getElementById("full-name");
+      const email = document.getElementById("email");
+      const text  = document.getElementById("message");
+
+      const errors = [];
+      if (!name.value.trim()) errors.push("Name is required.");
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email.value)) errors.push("Valid email required.");
+      if (!text.value.trim()) errors.push("Message is required.");
+
+      if (errors.length) {
+        msg.textContent = errors.join(" ");
+        msg.style.color = "#ffb3b3";
+        return;
+      }
+
+      msg.textContent = "Thank you! Your message has been submitted.";
+      msg.style.color = "#93c5fd";
+      form.reset();
+    });
+  })();
+  </script>
 </body>
 </html>
-
-
