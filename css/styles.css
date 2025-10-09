@@ -180,3 +180,22 @@ footer{
   text-align:center;
   color:var(--muted);
 }
+/* Make Nutrition page figures narrower than the full content width */
+section[aria-labelledby="page-title"] figure,
+section[aria-labelledby="balanced-meals"] figure {
+  max-width: clamp(320px, 90vw, 720px); /* try 560–800px if you want smaller/larger */
+  margin: 0 auto;                       /* center them */
+}
+
+/* Keep images responsive inside the capped figure */
+section[aria-labelledby="page-title"] figure img,
+section[aria-labelledby="balanced-meals"] figure img {
+  width: 100%;
+  height: auto;
+}
+
+/* Optional: gently cap very tall images */
+section[aria-labelledby="balanced-meals"] figure img {
+  max-height: 480px;     /* adjust to taste */
+  object-fit: cover;      /* crops edges gracefully if the image is super tall */
+}
